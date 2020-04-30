@@ -6,3 +6,4 @@ export const SUB_QUANTITY = 'SUB_QUANTITY';
 export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const ADD_SHIPPING = 'ADD_SHIPPING';
 export const FETCH_ITEMS = 'FETCH_ITEMS';
+export const SUBMIT_ORDER = 'SUBMIT_ORDER';

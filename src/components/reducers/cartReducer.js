@@ -1,4 +1,4 @@
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING,FETCH_ITEMS } from '../actions/action-types/cart-actions'
+import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING,FETCH_ITEMS,SUBMIT_ORDER } from '../actions/action-types/cart-actions'
 
 
 const initState = {
@@ -64,7 +64,7 @@ const cartReducer= (state = initState,action)=>{
             let newTotal = state.total - addedItem.price
             return{
                 ...state,
-                addedItems: new_items,
+                addedItems: new_items,  
                 total: newTotal
             }
         }
@@ -98,6 +98,14 @@ const cartReducer= (state = initState,action)=>{
         return{
             ...state,
             items: action.payload
+        }
+    }
+
+    //submit order
+    if(action.type=== SUBMIT_ORDER){
+        return{
+            ...state,
+            order: action.payload
         }
     }
     

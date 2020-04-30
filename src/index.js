@@ -13,16 +13,18 @@ import {applyMiddleware, compose} from "redux";
 const initialState = {
     items: [],
     addedItems:[],
-    total: 0
+    total: 0,
+    userOrder:{}
 };
 
 const middleware = [thunk];
 
-const store = createStore(
+export const store = createStore(
     cartReducer,
     initialState,
     compose(
-        applyMiddleware(...middleware)
+        applyMiddleware(...middleware),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
 );
 

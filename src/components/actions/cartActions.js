@@ -1,5 +1,14 @@
 
-import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING,FETCH_ITEMS} from './action-types/cart-actions'
+import {
+    ADD_TO_CART,
+    REMOVE_ITEM,
+    SUB_QUANTITY,
+    ADD_QUANTITY,
+    ADD_SHIPPING,
+    FETCH_ITEMS,
+    SUBMIT_ORDER
+} from './action-types/cart-actions'
+import {toast} from "react-toastify";
 
 //add cart action
 export const addToCart= (id)=>{
@@ -40,4 +49,29 @@ export const fetchItems = () => dispatch =>{
             })
         );
 }
+
+
+export const submitOrder = (order) => dispatch => {
+    fetch('https://yummypizza.herokuapp.com/api/pizzaorder',{
+        method: 'POST',
+        headers: {
+            'content-type':'application/json'
+        },
+        body: JSON.stringify(order)
+    })
+        .then(res => res.json())
+        .then((data) =>  {
+            toast.success(data.data.statusmessage)
+        })
+        .catch((err)=>{
+            toast.warn("Network error")
+        })
+        .then(order => dispatch({
+                type: SUBMIT_ORDER,
+                payload: order
+            })
+        );
+};
+
+
 

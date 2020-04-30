@@ -61,8 +61,7 @@ import { toast } from 'react-toastify';
 Home.propTypes ={
     fetchItems :propTypes.func.isRequired,
     items: propTypes.array
-
-}
+    }
 
 
 
