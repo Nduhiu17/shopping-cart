@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {addToCart, fetchItems} from './actions/cartActions';
 import propTypes from 'prop-types';
-import Item1 from '../images/item4.jpg'
 import { toast } from 'react-toastify';
 
 
@@ -34,7 +33,7 @@ import { toast } from 'react-toastify';
             return(
                 <div className="card" key={item.id}>
                         <div className="card-image">
-                            <img src={Item1} alt={item.pizzatype}/>
+                            <img src={`https://yummypizza.herokuapp.com/images/${item.img}`} alt={item.pizzatype}/>
                             <span className="card-title">{item.pizzatype}</span>
                             <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={()=>{this.handleClick(item.id)}}><i className="material-icons">add</i></span>
                         </div>
