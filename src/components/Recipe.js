@@ -4,6 +4,17 @@ import {submitOrder} from "./actions/cartActions";
 import {store} from '../index'
 //import { addShipping } from './actions/cartActions'
 class Recipe extends Component{
+
+    constructor() {
+        super();
+
+        this.state = {
+            name:"",
+            location:"",
+            phonenumber:"",
+            otherdetails:""
+        }
+    }
     
     componentWillUnmount() {
          if(this.refs.shipping.checked)
@@ -19,19 +30,24 @@ class Recipe extends Component{
         }
     }
 
+    onChange(e){
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+
     handleOrderSubmit = ()=>{
 
         const order = {
-            "customername":"aaa aaa aaa",
-            "customerlocation":"aaa aaa aaa",
-            "customerphone":"aaa",
+            "customername":this.state.name,
+            "customerlocation":this.state.location,
+            "customerphone":this.state.phonenumber,
             "pizzatype": store.getState().addedItems[0].pizzatype,
             "pizzasize":store.getState().addedItems[0].size,
             "quantity":store.getState().addedItems[0].quantity,
             "price":store.getState().addedItems[0].price,
             "deliveryfee":store.getState().addedItems[0].deliveryfee,
             "totalprice":store.getState().total,
-            "additionaldetails":"aaa aaa aaa"
+            "additionaldetails":this.state.otherdetails
         }
 
         this.props.submitOrder(order);
@@ -41,14 +57,38 @@ class Recipe extends Component{
   
         return(
             <div className="container">
+                <div className="row">
+                    <form className="col s12">
+                        <div className="row">
+                            <div className="input-field col s6">
+                                <input placeholder="name" name="name" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                    <label htmlFor="first_name">Name</label>
+                            </div>
+                            <div className="input-field col s6">
+                                <input name="location" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                    <label htmlFor="location">Location</label>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="input-field col s6">
+                                <input placeholder="phone number" name="phonenumber" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                <label htmlFor="first_name">Phone Number</label>
+                            </div>
+                            <div className="input-field col s6">
+                                <input placeholder="Other Details" name="otherdetails" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                <label htmlFor="location">Other Details</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 <div className="collection">
                     <li className="collection-item">
                             <label>
                                 <input type="checkbox" ref="shipping" onChange= {this.handleChecked} />
                                 <span>Shipping(+6$)</span>
                             </label>
-                        </li>
-                        <li className="collection-item"><b>Total: {this.props.total} $</b></li>
+                    </li>
+                    <li className="collection-item"><b>Total: {this.props.total} $</b></li>
                     </div>
                     <div className="checkout">
                         <button className="waves-effect waves-light btn" onClick={()=>{this.handleOrderSubmit()}}>Checkout</button>
