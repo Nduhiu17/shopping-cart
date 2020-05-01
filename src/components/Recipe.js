@@ -109,7 +109,7 @@ const mapDispatchToProps = (dispatch)=>{
     return{
         addShipping: ()=>{dispatch({type: 'ADD_SHIPPING'})},
         substractShipping: ()=>{dispatch({type: 'SUB_SHIPPING'})},
-        submitOrder: (order)=>{dispatch(submitOrder(order))}
+        submitOrder: (order)=>{dispatch(submitOrder(order))},
     }
 }
 

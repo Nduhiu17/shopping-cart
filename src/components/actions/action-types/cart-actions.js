@@ -7,3 +7,4 @@ export const ADD_QUANTITY = 'ADD_QUANTITY';
 export const ADD_SHIPPING = 'ADD_SHIPPING';
 export const FETCH_ITEMS = 'FETCH_ITEMS';
 export const SUBMIT_ORDER = 'SUBMIT_ORDER';
+export const GET_SHIPPING_COST = 'GET_SHIPPING_COST';

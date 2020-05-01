@@ -108,8 +108,9 @@ const cartReducer= (state = initState,action)=>{
             order: action.payload
         }
     }
-    
-  else{
+
+
+    else{
     return state
     }
     
