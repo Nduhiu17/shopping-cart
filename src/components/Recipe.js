@@ -61,22 +61,22 @@ class Recipe extends Component{
                     <form className="col s12">
                         <div className="row">
                             <div className="input-field col s6">
-                                <input placeholder="name" name="name" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
-                                    <label htmlFor="first_name">Name</label>
+                                <input placeholder="" name="name" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                    <label>Name</label>
                             </div>
                             <div className="input-field col s6">
-                                <input name="location" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
-                                    <label htmlFor="location">Location</label>
+                                <input placeholder="" name="location" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                <label>Location</label>
                             </div>
                         </div>
                         <div className="row">
                             <div className="input-field col s6">
-                                <input placeholder="phone number" name="phonenumber" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
-                                <label htmlFor="first_name">Phone Number</label>
+                                <input placeholder="" placeholder="" name="phonenumber" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                <label>Phone Number</label>
                             </div>
                             <div className="input-field col s6">
-                                <input placeholder="Other Details" name="otherdetails" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
-                                <label htmlFor="location">Other Details</label>
+                                <input placeholder="" name="otherdetails" type="text" className="validate" onChange={(e) => this.onChange(e)}/>
+                                <label>Other Details</label>
                             </div>
                         </div>
                     </form>
